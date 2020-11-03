@@ -1,0 +1,211 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --white-darker: rgb(244, 244, 244);
+  --white-darkest: rgb(198, 255, 255);
+  --blue-dark: rgb(35, 102, 135);
+  --blue-light: rgb(0, 169, 197);
+  --black: rgb(23, 23, 23);
+  --grey-dark: rgb(102, 102, 102);
+  --grey-medium: rgb(107, 107, 107);
+  --grey-light: rgb(211, 211, 211);
+  --grey-lighter: rgb(231, 231, 231);
+  --grey-lightest: rgb(248, 248, 248);
+}
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background-color: var(--white-darker);
+  font-size: 1.5rem;
+}
+
+main {
+  display: grid;
+  margin: 1rem;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+header div {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+header div button {
+  all: unset;
+  font-weight: 400;
+  color: var(--grey-dark);
+}
+header div span {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 10;
+  color: var(--grey-medium);
+  transform: rotate(30deg);
+}
+header div button:last-child {
+  color: var(--blue-dark);
+}
+header > button {
+  all: unset;
+  color: var(--blue-light);
+  border: 2px solid var(--blue-light);
+  border-radius: 6px;
+  font-weight: 200;
+  font-size: 2rem;
+  align-self: center;
+  padding: 1rem;
+  transition: 0.3s all;
+}
+.properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+
+  gap: 3rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 3px solid var(--grey-light);
+  border-radius: 3px;
+  background-color: var(--white);
+  font-weight: 100;
+}
+article h2 {
+  font-weight: 100;
+}
+footer {
+  background-color: var(--grey-lightest);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: var(--grey-medium);
+  border-top: 2px solid var(--grey-lighter);
+  text-transform: uppercase;
+}
+footer p:is(:first-child, :nth-child(2)) {
+  border-right: 2px solid var(--grey-lighter);
+}
+footer span {
+  display: block;
+  color: var(--grey-dark);
+  font-weight: 400;
+}
+article button {
+  all: unset;
+  display: block;
+  background-color: var(--blue-light);
+  color: var(--white-darkest);
+  overflow: visible;
+  border-radius: 0 0 3px 3px;
+  height: 100px;
+  font-size: 1.8rem;
+  font-weight: 300;
+  transition: all 0.3s;
+}
+@media screen and (min-width: 700px) {
+  main header {
+    grid-column: 1/-1;
+  }
+  main {
+    margin: 0;
+    grid-template-columns: 3rem auto 3rem;
+  }
+  main > * {
+    grid-column: 2;
+  }
+}
+@media screen and (min-width: 900px) {
+  main header {
+    grid-column: 2;
+  }
+}
+@media screen and (min-width: 1020px) {
+  header {
+    flex-direction: row;
+  }
+  header div {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/*Utility classes*/
+.breakout {
+  max-width: calc(100% + 6px);
+  width: calc(100% + 6px);
+  transform: translate(-3px, 3px);
+}
+.up {
+  transform: translate(-3px, -3px);
+}
+
+/*hover states*/
+
+header > button:hover {
+  cursor: pointer;
+  background: var(--blue-light);
+  color: var(--white-darker);
+  border: 2px solid var(--blue-light);
+}
+header div button:hover {
+  cursor: pointer;
+  position: relative;
+}
+header div button:after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  display: block;
+  width: 100%;
+  transform: scaleX(0);
+  height: 20px;
+  border-bottom: 2px solid var(--grey-dark);
+  transition: all 0.3s;
+}
+header div button:hover:after {
+  transform: scaleX(1);
+}
+article button:hover {
+  cursor: pointer;
+  background-color: var(--black);
+  color: var(--white-darker);
+}
+article img:hover {
+  filter: blur(4px) grayscale(60%);
+}
+/*
+<article>
+                    <img src="" alt="">
+                    <h2></h2>
+                    <footer>
+                        <p><span>1</span> Bed</p>
+                        <p><span>2</span> Bath</p>
+                        <p><span>1</span> SQ Feet</p>
+                    </footer>
+                    <button>View Property</button>
+                </article>
+*/

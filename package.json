@@ -1,0 +1,17 @@
+{
+  "name": "realestate-copy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "minify-html":"minify *.html > dist/index.html",
+    "minify-css":"minify index.css > dist/index.css",
+    "minify-js":"minify index.js > dist/index.js",
+    "minify":"npm run minify-html && npm run minify-css && npm run minify-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "minify": "^6.0.1"
+  }
+}
